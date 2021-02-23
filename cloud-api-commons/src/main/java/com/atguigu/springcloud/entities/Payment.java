@@ -14,4 +14,9 @@ public class Payment implements Serializable {
     private Long id;
     private String serial;
 
+
+    public static void main(String[] args) {
+        System.out.println("测试git");
+    }
+
 }
