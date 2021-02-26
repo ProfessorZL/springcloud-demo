@@ -6,10 +6,10 @@ spring:
     name: cloud-provider-paymentCsl8004
   cloud:
     consul:
-      host: 192.168.153.88
+      host: localhost
       port: 8500
       discovery:
-        hostname: 127.0.0.1
+#        hostname: 127.0.0.1
         service-name: ${spring.application.name}
-        health-check-path: /health
-        health-check-interval: 10s
+#        health-check-path: /health
+#        health-check-interval: 10s
