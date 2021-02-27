@@ -60,4 +60,12 @@ public class PaymentController {
         return new CommonResult(200,"操作成功",discoveryClient);
     }
 
+    /**
+     * 测试自定义负载均衡算法
+     */
+    @GetMapping("/payment/getPort")
+    public String getPort(){
+        return serverPort;
+    }
+
 }
