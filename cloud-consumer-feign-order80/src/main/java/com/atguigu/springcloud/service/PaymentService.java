@@ -8,14 +8,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Component
-@FeignClient("CLOUD-PAYMENT-SERVICE")   //要调用的服务实例
+//要调用的服务实例,全局服务降级处理
+@FeignClient(value = "CLOUD-PAYMENT-HYSTRIX-SERVICE",fallback = PaymentFullbackService.class)
 public interface PaymentService {
 
-    @GetMapping("/payment/get/{id}")//要调用的服务提供者的接口
-    CommonResult<Payment> getById(@PathVariable("id") Long id);
+    @GetMapping("/payment/hystrix/ok/{id}")
+    String okInfo(@PathVariable("id") Long id);
+
+//    @GetMapping("/payment/get/{id}")//要调用的服务提供者的接口
+//    CommonResult<Payment> getById(@PathVariable("id") Long id);
 
     @GetMapping("/payment/timeout")
     String timeout();
+
+    @GetMapping("/payment/hystrix/timeout/{id}")
+    String timeout(@PathVariable("id") Long id);
 
 }
 

@@ -19,6 +19,7 @@
       <module>cloud-provider-payment8004Consul</module>
       <module>cloud-consumer-order80Csl</module>
       <module>cloud-consumer-feign-order80</module>
+      <module>cloud-provider-hystrix-payment8001</module>
   </modules>
   <packaging>pom</packaging>
 
